@@ -2,6 +2,10 @@ from bakedrandom import brandom as random
 from evaluator.door_judge import DoorJudge
 from recordclass import recordclass
 
+##
+# In summary, the GeneticDoorShaker uses genetic algorithm techniques (crossover, mutation, and selection) to evolve 
+# a population of door configurations for a floorplan, aiming to optimize the connectivity and door placement
+##
 DoorVectorScore = recordclass("DoorVectorScore", [
     "vector",
     "score"
