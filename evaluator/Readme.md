@@ -1,11 +1,11 @@
 # Evaluator
 ## Basic Evaluator
-DoorOffEdgeEvaluator: Checks if any door is placed too close to the edge of a room (outside valid boundaries).
-MinimumWidthEvaluator: Ensures that rooms meet a minimum width and height threshold.
-AdjacentHallwayFilter: Ensures narrow rooms do not spawn next to other narrow rooms, based on area-to-perimeter ratio and shared edge length.
-LongDeadEndFilter: Detects narrow rooms that have only one or no doors, marking them as dead ends.
-LowMeanAreaPerimeterRatio: Verifies that the median area-to-perimeter ratio for all rooms in the floorplan is above a specified threshold.
-HighTravelCostBetweenRoomsFilter: Measures travel cost between rooms using an adjacency matrix and ensures the longest path is below a certain limit.
+* DoorOffEdgeEvaluator: Checks if any door is placed too close to the edge of a room (outside valid boundaries).
+* MinimumWidthEvaluator: Ensures that rooms meet a minimum width and height threshold.
+* AdjacentHallwayFilter: Ensures narrow rooms do not spawn next to other narrow rooms, based on area-to-perimeter ratio and shared edge length.
+* LongDeadEndFilter: Detects narrow rooms that have only one or no doors, marking them as dead ends.
+* LowMeanAreaPerimeterRatio: Verifies that the median area-to-perimeter ratio for all rooms in the floorplan is above a specified threshold.
+* HighTravelCostBetweenRoomsFilter: Measures travel cost between rooms using an adjacency matrix and ensures the longest path is below a certain limit.
 
 ## Door Judge
 The code defines a DoorJudge class that evaluates door placements in a floorplan based on two main criteria:
