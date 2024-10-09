@@ -73,3 +73,29 @@ This code defines a comprehensive system for generating and optimizing floorplan
 
 ### Summary:
 This code generates optimized floorplans by combining genetic algorithms with subdivision tree techniques. It evolves both the room layout and door placements through multiple iterations, scoring each configuration to find the best possible design. The system is capable of saving and rendering the best results in each generation, ultimately producing a "perfect" floorplan based on the defined criteria.
+
+# Groom
+
+This code defines various room types (Grooms) and implements methods to score these rooms based on their layout in a floorplan, with special attention to the aspect ratio, neighboring rooms, and door placements. Here's a brief breakdown:
+
+## Key Components:
+### TreeWeights:
+
+A recordclass that stores weights for evaluating rooms and layouts. The weights influence factors like aspect ratios, room proximity (e.g., kitchen near dining), and scoring adjustments for specific room types (like bedrooms, living rooms, etc.).
+### Groom Class:
+
+A base class representing a room (called a "groom"), with basic methods to calculate its score in a floorplan (tree_score) and how well doors are placed (door_score).
+The scoring depends on room attributes like neighbors and aspect ratio.
+### Room Subclasses:
+
+LivingGroom: Represents a living room and scores it based on its aspect ratio and fixed weight (LivingGroom_weight).
+DiningGroom: Extends LivingGroom, adds custom scoring logic based on proximity to a kitchen or hallway.
+KitchenGroom, HallwayGroom, BedGroom, BathGroom: Each represents specific room types, with unique scoring functions that evaluate aspects like aspect ratio, proximity to other rooms, and door placements.
+## Aspect Ratio and Door Scoring:
+
+Each room type has custom logic for scoring based on aspect ratio limits (defined in TreeWeights) and how well doors are placed between neighboring rooms.
+For example, DiningGroom has multipliers based on proximity to a kitchen or hallway, and BedGroom penalizes rooms that block flow between others.
+JiltedGroom: A placeholder room that has zero score and is not intended to be placed in a functional floorplan.
+
+## Summary:
+This code sets up a framework for scoring various types of rooms in a floorplan based on their aspect ratios, neighboring rooms, and door placements. The TreeWeights object stores adjustable weights that fine-tune how different room types are evaluated. Subclasses of Groom implement specific scoring logic for different room types like living rooms, kitchens, bedrooms, and bathrooms.
